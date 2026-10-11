@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Healthcare ITSM Analytics – HMC</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 35px auto;
+      padding: 0 20px;
+      color: #202b3c;
+      background: #f5f7fb;
+      line-height: 1.6;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid #dce3ed;
+      background: white;
+    }
+    .item {
+      background: white;
+      padding: 12px;
+      border-radius: 12px;
+    }
+    a { color: #1769aa; }
+    @media (max-width: 650px) {
+      .gallery { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <p><a href="./">← Back to Portfolio</a></p>
+
+  <h1>Healthcare ITSM Analytics – HMC</h1>
+  <p>
+    Power BI solution showcasing healthcare ITSM analytics,
+    SLA performance, service requests and semantic modeling.
+  </p>
+
+  <h2>Dashboard Gallery</h2>
+
+  
+<h2>Dashboard Gallery</h2>
+
+<div id="gallery" class="gallery">
+  Loading screenshots...
+</div>
+
+<script>
+  const owner = "riaz-pa";
+  const repo = "riaz-pa.github.io";
+  const folder = "itsm-analytics";
+
+  const gallery = document.getElementById("gallery");
+
+  fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${folder}`)
+    .then(response => {
+      if (!response.ok) throw new Error("Unable to load images");
+      return response.json();
+    })
+    .then(files => {
+      const images = files.filter(file =>
+        file.type === "file" &&
+        /\.(jpg|jpeg|png)$/i.test(file.name)
+      );
+
+      if (images.length === 0) {
+        gallery.textContent = "No dashboard images found.";
+        return;
+      }
+
+      gallery.innerHTML = "";
+
+      images.forEach(file => {
+        const item = document.createElement("div");
+        item.className = "item";
+
+        const image = document.createElement("img");
+        image.src = file.download_url;
+        image.alt = file.name;
+        image.loading = "lazy";
+
+        const caption = document.createElement("p");
+        caption.textContent = file.name;
+
+        item.appendChild(image);
+        item.appendChild(caption);
+        gallery.appendChild(item);
+      });
+    })
+    .catch(() => {
+      gallery.textContent =
+        "Unable to load screenshots. Please try again later.";
+    });
+</script>
+
+
+  <p><a href="./">← Back to Portfolio</a></p>
+</body>
+</html>
