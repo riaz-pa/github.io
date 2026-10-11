@@ -57,3 +57,8 @@ Power BI | DAX | Power Query | Semantic Modeling | Star Schema | Data Relationsh
 
 This portfolio entry describes the type of work and technical capabilities demonstrated in the project. Screenshots, sample datasets, and report links should only be published where authorized. Any demonstration materials should use synthetic or approved anonymized data.
 
+
+
+## Dashboard Preview
+![ITSM Analytics Dashboard](SRD.jpg)
+
