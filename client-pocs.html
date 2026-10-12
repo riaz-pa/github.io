@@ -1,0 +1,149 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Client POCs & Demonstrations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 35px auto;
+      padding: 0 20px;
+      color: #202b3c;
+      background: #f5f7fb;
+      line-height: 1.6;
+    }
+
+    a { color: #1769aa; }
+
+    .gallery {
+      columns: 2;
+      column-gap: 20px;
+      margin-top: 24px;
+    }
+
+    .item {
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0 0 20px;
+      padding: 14px;
+      background: white;
+      border: 1px solid #e5eaf1;
+      border-radius: 12px;
+      break-inside: avoid;
+      box-shadow: 0 2px 8px rgba(25,45,75,.05);
+    }
+
+    .item video {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      background: #111827;
+      border-radius: 8px;
+    }
+
+    .item h2 {
+      font-size: 18px;
+      margin: 12px 0 6px;
+    }
+
+    .item p {
+      font-size: 14px;
+      color: #526174;
+      margin: 0;
+    }
+
+    .tag {
+      margin-top: 10px !important;
+      font-size: 12px !important;
+      color: #1769aa !important;
+    }
+
+    .disclaimer {
+      margin-top: 28px;
+      color: #65748a;
+      font-size: 12px;
+    }
+
+    @media (max-width: 650px) {
+      .gallery { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+  <p><a href="./">← Back to Portfolio</a></p>
+
+  <h1>Client POCs & Demonstrations</h1>
+  <p>
+    Interactive Power BI prototypes demonstrating analytics,
+    data storytelling, and report functionality using sample data.
+  </p>
+
+  <div class="gallery">
+
+    <article class="item">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/mcdonalds-sales-poc.mp4"
+                type="video/mp4">
+      </video>
+      <h2>Sales Analytics POC</h2>
+      <p>
+        Sales performance by location, order type, discount,
+        product category, and sales channel.
+      </p>
+      <p class="tag">Power BI · DAX · Sales Analytics</p>
+    </article>
+
+    <article class="item">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/SAK.mp4"
+                type="video/mp4">
+      </video>
+      <h2>Geographic Sales Analysis</h2>
+      <p>
+        Map-based visualization for exploring sales distribution
+        and comparing performance across locations.
+      </p>
+      <p class="tag">Power BI · Maps · Geographic Analysis</p>
+    </article>
+
+    <article class="item">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/mcdonalds-data-story.mp4"
+                type="video/mp4">
+      </video>
+      <h2>Interactive Data Story</h2>
+      <p>
+        Interactive filtering, drill-through, and data exploration
+        across sales dimensions.
+      </p>
+      <p class="tag">Power BI · Drill-through · Bookmarks</p>
+    </article>
+
+    <article class="item">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/mcdonalds-qa-poc.mp4"
+                type="video/mp4">
+      </video>
+      <h2>Power BI Q&A</h2>
+      <p>
+        Natural-language exploration of sample sales data
+        through Power BI Q&A.
+      </p>
+      <p class="tag">Power BI · Q&A · Data Exploration</p>
+    </article>
+
+  </div>
+
+  <p class="disclaimer">
+    All demonstrations use dummy data and are intended to
+    showcase proof-of-concept capabilities, not actual client
+    business performance.
+  </p>
+</body>
+</html>
