@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AlRayan Bank – Power BI Dashboard Showcase</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 35px auto;
+      padding: 0 20px;
+      color: #202b3c;
+      background: #f5f7fb;
+      line-height: 1.6;
+    }
+
+    a { color: #1769aa; }
+
+    .intro {
+      background: white;
+      padding: 24px;
+      border: 1px solid #e5eaf1;
+      border-radius: 12px;
+      margin: 20px 0 28px;
+    }
+
+    .gallery {
+      columns: 2;
+      column-gap: 20px;
+    }
+
+    .item {
+      display: inline-block;
+      width: 100%;
+      margin: 0 0 20px;
+      padding: 12px;
+      background: white;
+      border: 1px solid #e5eaf1;
+      border-radius: 12px;
+      break-inside: avoid;
+    }
+
+    .item img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .item p {
+      color: #65748a;
+      font-size: 12px;
+      overflow-wrap: anywhere;
+      margin-bottom: 0;
+    }
+
+    .disclaimer {
+      color: #65748a;
+      font-size: 12px;
+      margin-top: 28px;
+    }
+
+    @media (max-width: 650px) {
+      .gallery { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+  <a href="./">← Back to Portfolio</a>
+
+  <h1>AlRayan Bank – Power BI Dashboard Showcase</h1>
+
+  <div class="intro">
+    <p>
+      A showcase of Power BI dashboard development and
+      analytics capabilities in a banking environment.
+    </p>
+    <p>
+      Areas demonstrated may include KPI reporting, interactive
+      visualizations, data modeling, DAX measures and business
+      performance analysis, depending on the screenshots displayed.
+    </p>
+  </div>
+
+  <h2>Dashboard Gallery</h2>
+
+  <div id="gallery" class="gallery">
+    Loading dashboard screenshots...
+  </div>
+
+  <p class="disclaimer">
+    Portfolio demonstration only. Screenshots and data must be
+    approved for public disclosure or appropriately anonymized.
+  </p>
+
+  <script>
+    const owner = "riaz-pa";
+    const repo = "riaz-pa.github.io";
+    const folder = "alrayan-bank";
+    const gallery = document.getElementById("gallery");
+
+    fetch(
+      `https://api.github.com/repos/${owner}/${repo}/contents/${folder}`
+    )
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Unable to load screenshots");
+        }
+        return response.json();
+      })
+      .then(files => {
+        const images = files
+          .filter(file =>
+            file.type === "file" &&
+            /\.(png|jpe?g)$/i.test(file.name)
+          )
+          .sort((a, b) => a.name.localeCompare(b.name));
+
+        gallery.innerHTML = "";
+
+        if (images.length === 0) {
+          gallery.textContent =
+            "No screenshots found. Upload PNG or JPG files to the alrayan-bank folder.";
+          return;
+        }
+
+        images.forEach(file => {
+          const item = document.createElement("article");
+          item.className = "item";
+
+          const img = document.createElement("img");
+          img.src = file.download_url;
+          img.alt = "AlRayan Bank Power BI dashboard";
+          img.loading = "lazy";
+
+          const caption = document.createElement("p");
+          caption.textContent = file.name;
+
+          item.appendChild(img);
+          item.appendChild(caption);
+          gallery.appendChild(item);
+        });
+      })
+      .catch(() => {
+        gallery.textContent =
+          "Unable to load screenshots. Please check the repository and folder name.";
+      });
+  </script>
+</body>
+</html>
